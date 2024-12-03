@@ -23,8 +23,6 @@ export default function createApp() {
   return app;
 }
 
-export function createTestApp(router: AppOpenAPI) {
-  const testApp = createApp();
-  testApp.route("/", router);
-  return testApp;
+export function createTestApp<R extends AppOpenAPI>(router: R) {
+  return createApp().route("/", router);
 }
