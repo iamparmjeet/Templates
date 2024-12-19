@@ -65,6 +65,7 @@ export const getOne = createRoute({
 export const patch = createRoute({
   path: "/tasks/{id}",
   tags,
+  method: "patch",
   request: {
     params: IdParamsSchema,
     body: jsonContentRequired(
@@ -72,7 +73,6 @@ export const patch = createRoute({
       "The Task to update",
     ),
   },
-  method: "patch",
   responses: {
     [HttpStatusCodes.OK]: jsonContent(
       selectTasksSchema,
@@ -82,12 +82,10 @@ export const patch = createRoute({
       notFoundSchema,
       "Task not found",
     ),
-    [HttpStatusCodes.UNPROCESSABLE_ENTITY]: jsonContentOneOf(
-      [
-        createErrorSchema(patchTasksSchema),
-        createErrorSchema(IdParamsSchema),
-      ],
-      "The Update error",
+    [HttpStatusCodes.UNPROCESSABLE_ENTITY]: jsonContent(
+      createErrorSchema(patchTasksSchema)
+        .or(createErrorSchema(IdParamsSchema)),
+      "The validation error(s)",
     ),
   },
 });
