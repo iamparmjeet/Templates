@@ -1,5 +1,4 @@
 /* eslint-disable node/no-process-env */
-
 import { config } from "dotenv";
 import { expand } from "dotenv-expand";
 import path from "node:path";
@@ -30,15 +29,15 @@ const EnvSchema = z.object({
   }
 });
 
-export type env = z.infer<typeof EnvSchema>;
+export type Environment = z.infer<typeof EnvSchema>;
 
-// eslint-disable-next-line ts/no-redeclare
-const { data: env, error } = EnvSchema.safeParse(process.env);
+export function parseEnv(data: any) {
+  const { data: env, error } = EnvSchema.safeParse(data);
 
-if (error) {
-  console.error("Error in env", error.message);
-  console.error(JSON.stringify(error.flatten().fieldErrors, null, 2));
-  process.exit(1);
+  if (error) {
+    const errorMessage = `❌ Invalid env - ${Object.entries(error.flatten().fieldErrors).map(([key, errors]) => `${key}: ${errors.join(",")}`).join(" | ")}`;
+    throw new Error(errorMessage);
+  }
+
+  return env;
 }
-
-export default env!;
