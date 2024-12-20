@@ -3,7 +3,9 @@
     "target": "ESNext",
     "jsx": "react-jsx",
     "jsxImportSource": "hono/jsx",
-    "lib": ["ESNext"],
+    "lib": [
+      "ESNext"
+    ],
     "baseUrl": "./",
     "module": "ESNext",
     "moduleResolution": "Bundler",
@@ -11,9 +13,6 @@
       "@/*": ["./src/*"]
     },
     "typeRoots": ["./node_modules/@types"],
-    "types": [
-      "node"
-    ],
     "strict": true,
     "outDir": "./dist",
     "skipLibCheck": true
