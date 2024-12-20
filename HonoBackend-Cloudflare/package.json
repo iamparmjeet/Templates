@@ -44,6 +44,6 @@
     "turso": "^0.1.0",
     "typescript": "^5.7.2",
     "vitest": "^2.1.8",
-    "wrangler": "^3.98.0"
+    "wrangler": "^3.99.0"
   }
 }
