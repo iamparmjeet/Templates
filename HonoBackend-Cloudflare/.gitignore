@@ -27,9 +27,11 @@ lerna-debug.log*
 # misc
 .DS_Store
 
-dev.db
+dev.db*
 test.db
 .vercel
 dist
 
 wrangler.toml
+.dev.vars
+.wrangler
