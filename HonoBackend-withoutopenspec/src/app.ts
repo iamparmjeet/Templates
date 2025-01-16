@@ -1,12 +1,15 @@
-import { Hono } from "hono";
-import { notFound } from "stoker/middlewares";
+import createApp from "@/lib/create-app";
 
-const app = new Hono();
+const app = createApp();
 
 app.get("/", (c) => {
   return c.text("Hello Hono!");
 });
 
-app.notFound(notFound);
+app.get("/error", (c) => {
+  c.status(422);
+  c.var.logger.info("Info Error");
+  throw new Error("Error Page");
+});
 
 export default app;
