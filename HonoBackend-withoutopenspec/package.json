@@ -1,0 +1,17 @@
+{
+  "name": "HonoBackend-withoutopenspec",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy --minify"
+  },
+  "dependencies": {
+    "hono": "^4.6.16"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250109.0",
+    "wrangler": "^3.101.0",
+    "@antfu/eslint-config": "^3.14.0",
+    "eslint": "^9.18.0",
+    "eslint-plugin-format": "^1.0.1"
+  }
+}
