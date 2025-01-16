@@ -1,8 +1,8 @@
 name = "honobackend-withoutopenspec"
-main = "src/index.ts"
+main = "src/app.ts"
 compatibility_date = "2025-01-16"
-
-# compatibility_flags = [ "nodejs_compat" ]
+compatibility_flags = [ "nodejs_compat" ]
+keep_vars = true
 
 # [vars]
 # MY_VAR = "my-variable"
