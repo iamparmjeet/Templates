@@ -4,8 +4,14 @@ import { pinoLogger } from "@/middleware/pino-logger";
 import { Hono } from "hono";
 import { notFound, onError, serveEmojiFavicon } from "stoker/middlewares";
 
+export function createRouter() {
+  return new Hono<AppBindings>({
+    strict: false,
+  });
+}
+
 export default function createApp() {
-  const app = new Hono<AppBindings>();
+  const app = createRouter();
   app.use(serveEmojiFavicon("⛳"));
   app.use(pinoLogger());
 
