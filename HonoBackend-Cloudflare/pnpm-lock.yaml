@@ -31,10 +31,10 @@ importers:
         version: 12.0.2
       drizzle-orm:
         specifier: ^0.44.4
-        version: 0.44.4(@cloudflare/workers-types@4.20250823.0)(@libsql/client@0.15.12)
+        version: 0.44.4(@cloudflare/workers-types@4.20250823.0)(@electric-sql/pglite@0.3.7)(@libsql/client@0.15.12)
       drizzle-zod:
         specifier: ^0.8.3
-        version: 0.8.3(drizzle-orm@0.44.4(@cloudflare/workers-types@4.20250823.0)(@libsql/client@0.15.12))(zod@4.1.1)
+        version: 0.8.3(drizzle-orm@0.44.4(@cloudflare/workers-types@4.20250823.0)(@electric-sql/pglite@0.3.7)(@libsql/client@0.15.12))(zod@4.1.1)
       hono:
         specifier: ^4.9.4
         version: 4.9.4
@@ -200,6 +200,9 @@ packages:
 
   '@drizzle-team/brocli@0.10.2':
     resolution: {integrity: sha512-z33Il7l5dKjUgGULTqBsQBQwckHh5AbIuxhdsIxDDiZAzBOrZO6q9ogcWC65kU382AfynTfgNumVcNIjuIua6w==}
+
+  '@electric-sql/pglite@0.3.7':
+    resolution: {integrity: sha512-5c3mybVrhxu5s47zFZtIGdG8YHkKCBENOmqxnNBjY53ZoDhADY/c5UqBDl159b7qtkzNPtbbb893wL9zi1kAuw==}
 
   '@emnapi/runtime@1.4.5':
     resolution: {integrity: sha512-++LApOtY0pEEz1zrd9vy1/zXVaVJJ/EbAF3u0fXIzPJEDtnITsBGbbK0EkM72amhl/R5b+5xx0Y/QhcVOpuulg==}
@@ -1982,6 +1985,9 @@ snapshots:
 
   '@drizzle-team/brocli@0.10.2': {}
 
+  '@electric-sql/pglite@0.3.7':
+    optional: true
+
   '@emnapi/runtime@1.4.5':
     dependencies:
       tslib: 2.8.1
@@ -2675,14 +2681,15 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.44.4(@cloudflare/workers-types@4.20250823.0)(@libsql/client@0.15.12):
+  drizzle-orm@0.44.4(@cloudflare/workers-types@4.20250823.0)(@electric-sql/pglite@0.3.7)(@libsql/client@0.15.12):
     optionalDependencies:
       '@cloudflare/workers-types': 4.20250823.0
+      '@electric-sql/pglite': 0.3.7
       '@libsql/client': 0.15.12
 
-  drizzle-zod@0.8.3(drizzle-orm@0.44.4(@cloudflare/workers-types@4.20250823.0)(@libsql/client@0.15.12))(zod@4.1.1):
+  drizzle-zod@0.8.3(drizzle-orm@0.44.4(@cloudflare/workers-types@4.20250823.0)(@electric-sql/pglite@0.3.7)(@libsql/client@0.15.12))(zod@4.1.1):
     dependencies:
-      drizzle-orm: 0.44.4(@cloudflare/workers-types@4.20250823.0)(@libsql/client@0.15.12)
+      drizzle-orm: 0.44.4(@cloudflare/workers-types@4.20250823.0)(@electric-sql/pglite@0.3.7)(@libsql/client@0.15.12)
       zod: 4.1.1
 
   end-of-stream@1.4.5:
