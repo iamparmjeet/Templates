@@ -1,4 +1,4 @@
 import { parseEnv } from "./env";
 
-// eslint-disable-next-line node/no-process-env
-export default parseEnv(process.env);
+// biome-ignore lint/suspicious/noExplicitAny: <Required>
+export default parseEnv(process.env as any);
